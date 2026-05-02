@@ -77,21 +77,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-  icons: {
-    icon: [
-      {
-        url: "/favicon.png",
-        type: "image/png",
-      },
-    ],
-    shortcut: ["/favicon.png"],
-    apple: [
-      {
-        url: "/favicon.png",
-        type: "image/png",
-      },
-    ],
-  },
   robots: {
     index: true,
     follow: true,
