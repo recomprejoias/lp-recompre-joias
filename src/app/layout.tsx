@@ -1,7 +1,13 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Montserrat, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { EmotionProvider } from "@/lib/EmotionProvider";
+
+const siteUrl = new URL("https://recomprejoias.com.br");
+const siteName = "Recompre Joias";
+const siteTitle = "Recompre Joias | Joias Reais por Valores Acessíveis";
+const siteDescription =
+  "A Recompre Joias oferece joias em Ouro 18k (750) e Prata 925, seminovas, cuidadosamente selecionadas, com preços acessíveis e autenticidade garantida.";
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -20,10 +26,9 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  title: "Recompre Joias | Joias Reais por Valores Acessíveis",
-  description:
-    "A Recompre Joias oferece joias em Ouro 18k (750) e Prata 925, seminovas, cuidadosamente selecionadas, com preços acessíveis e autenticidade garantida.",
-  applicationName: "Recompre Joias",
+  title: siteTitle,
+  description: siteDescription,
+  applicationName: siteName,
   keywords: [
     "joias",
     "ouro 18k",
@@ -34,15 +39,21 @@ export const metadata: Metadata = {
     "joias acessíveis",
     "joias autênticas",
   ],
-  authors: [{ name: "Recompre Joias" }],
-  creator: "Recompre Joias",
-  metadataBase: new URL("https://recomprejoias.com.br"),
+  authors: [{ name: siteName, url: siteUrl }],
+  creator: siteName,
+  publisher: siteName,
+  metadataBase: siteUrl,
+  alternates: {
+    canonical: "/",
+  },
+  category: "shopping",
+  classification: "Joias seminovas em ouro 18k e prata 925",
+  referrer: "origin-when-cross-origin",
   openGraph: {
-    title: "Recompre Joias | Joias Reais por Valores Acessíveis",
-    description:
-      "Joias em Ouro 18k e Prata 925, seminovas, cuidadosamente selecionadas, com preços acessíveis e autenticidade garantida!",
-    url: "https://recomprejoias.com.br",
-    siteName: "Recompre Joias",
+    title: siteTitle,
+    description: siteDescription,
+    url: siteUrl,
+    siteName,
     images: [
       {
         url: "/open-graph.png",
@@ -57,9 +68,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Recompre Joias | Joias Reais por Valores Acessíveis",
-    description:
-      "Joias em Ouro 18k e Prata 925, seminovas, cuidadosamente selecionadas, com preços acessíveis e autenticidade garantida!",
+    title: siteTitle,
+    description: siteDescription,
     images: [
       {
         url: "/open-graph.png",
@@ -85,7 +95,19 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#F2EFE9",
+  colorScheme: "light",
 };
 
 export default function RootLayout({
