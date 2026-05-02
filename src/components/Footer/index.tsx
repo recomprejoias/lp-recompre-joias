@@ -88,6 +88,7 @@ const FooterContainer = styled.footer`
         height: 12px;
         background: rgba(242, 239, 233, 0.08);
     }
+    
 
     .footer__modal-backdrop {
         position: fixed;
