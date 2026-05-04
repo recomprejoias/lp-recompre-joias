@@ -18,8 +18,8 @@ const HeroContainer = styled.section`
     padding: 96px;
 
     @media (max-width: 768px) {
-        padding: 48px 24px;
-        height: 120dvh;
+        padding: 32px 24px;
+        height: 100dvh;
     }
 
     .hero__video {
@@ -103,7 +103,7 @@ export function Hero() {
 
     return <HeroContainer id='inicio' ref={sectionRef}>
 
-        <VideoPlayer src="/hero-video.mp4" mobileSrc="/hero-video-mobile.mp4" poster="/hero-image.jpg" className='hero__video' playbackRate={1} />
+        <VideoPlayer src="/hero-video.mp4" mobileSrc="/hero-video-mobile-2.mp4" poster="/hero-image.jpg" className='hero__video' playbackRate={1} />
         <main className='hero__content'>
             <h1 className='hero__content-title' data-animate='fade-up'>
                 Compre joias de 18k por um preço <strong>totalmente</strong> acessível

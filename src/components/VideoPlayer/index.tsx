@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import styled from '@emotion/styled'
 
 const VideoPlayerContainer = styled.div`
@@ -28,17 +28,56 @@ interface VideoPlayerProps {
 
 export function VideoPlayer({ src, mobileSrc, poster, className, playbackRate = 1 }: VideoPlayerProps) {
     const videoRef = useRef<HTMLVideoElement>(null)
+    const [isMobileViewport, setIsMobileViewport] = useState(false)
 
     useEffect(() => {
-        if (videoRef.current) {
-            videoRef.current.playbackRate = playbackRate
+        if (!mobileSrc) {
+            return
         }
-    }, [playbackRate])
+
+        const mediaQuery = window.matchMedia('(max-width: 768px)')
+        const updateViewport = (event?: MediaQueryListEvent) => {
+            setIsMobileViewport(event ? event.matches : mediaQuery.matches)
+        }
+
+        updateViewport()
+
+        if (typeof mediaQuery.addEventListener === 'function') {
+            mediaQuery.addEventListener('change', updateViewport)
+
+            return () => {
+                mediaQuery.removeEventListener('change', updateViewport)
+            }
+        }
+
+        mediaQuery.addListener(updateViewport)
+
+        return () => {
+            mediaQuery.removeListener(updateViewport)
+        }
+    }, [mobileSrc])
+
+    const resolvedSrc = isMobileViewport && mobileSrc ? mobileSrc : src
+
+    useEffect(() => {
+        if (!videoRef.current) {
+            return
+        }
+
+        videoRef.current.load()
+        videoRef.current.playbackRate = playbackRate
+
+        const playPromise = videoRef.current.play()
+        if (playPromise) {
+            void playPromise.catch(() => {})
+        }
+    }, [playbackRate, resolvedSrc])
 
     return (
         <VideoPlayerContainer className={className}>
             <VideoElement
                 ref={videoRef}
+                src={resolvedSrc}
                 poster={poster}
                 autoPlay
                 muted
@@ -47,10 +86,7 @@ export function VideoPlayer({ src, mobileSrc, poster, className, playbackRate = 
                 preload="metadata"
                 disablePictureInPicture
                 controlsList="nodownload nofullscreen noremoteplayback"
-            >
-                {mobileSrc && <source src={mobileSrc} media="(max-width: 768px)" />}
-                <source src={src} />
-            </VideoElement>
+            />
         </VideoPlayerContainer>
     )
 }
