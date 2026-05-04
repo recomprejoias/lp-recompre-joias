@@ -4,7 +4,7 @@ import { useRef } from 'react'
 import styled from '@emotion/styled'
 import { Button } from '../Button'
 import Image from 'next/image'
-import { openWhatsappGroup } from '../../lib/whatsapp'
+import { openWhatsappDirectContact } from '../../lib/whatsapp'
 import { useSectionReveal } from '../../lib/useSectionReveal'
 
 const PersonalizadosContainer = styled.section`
@@ -126,18 +126,18 @@ export function Personalizados() {
 
     return <PersonalizadosContainer id='personalizacao' ref={sectionRef}>
         <div className='personalizados__content'>
-            <h2 className='personalizados__content-title' data-animate='fade-up'>Trabalhamos com joias totalmente <strong>personalizadas</strong></h2>
+            <h2 className='personalizados__content-title' data-animate='fade-up'>Trabalhamos também com joias totalmente <strong>personalizadas</strong></h2>
             <div className='personalizados__content-div'>
-                <p className='personalizados__content-div-description' data-animate='soft'>Do seu jeitinho, feito personalizado do jeito que você imaginou!</p>
-                <Button onClick={openWhatsappGroup} variant='black' data-animate='soft'>Personalize a sua</Button>
+                <p className='personalizados__content-div-description' data-animate='soft'>Alianças, escapulários, colar, pulseira, entre outros.</p>
+                <Button onClick={openWhatsappDirectContact} variant='black' data-animate='soft'>Personalize a sua</Button>
             </div>
         </div>
         <div className='personalizados__images'>
             <div className='personalizados__images-frame' data-animate='scale'>
-                <Image src="/sec-3-cordao-personalizado.png" alt="Imagem de joia personalizada 1" width={500} height={500} className='personalizados__images-image' />
+                <Image src="/aneis-de-ouro.jpeg" alt="Imagem de joia personalizada 1" width={500} height={500} className='personalizados__images-image' />
             </div>
             <div className='personalizados__images-frame' data-animate='scale' data-animate-delay='0.08'>
-                <Image src="/sec-3-pulseira-personalizada.png" alt="Imagem de joia personalizada 2" width={500} height={500} className='personalizados__images-image' />
+                <Image src="/cordao-de-m.jpeg" alt="Imagem de joia personalizada 2" width={500} height={500} className='personalizados__images-image' />
             </div>
         </div>
     </PersonalizadosContainer>

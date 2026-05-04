@@ -2,7 +2,7 @@
 
 import styled from '@emotion/styled'
 import { Button } from '../Button'
-import { openWhatsappGroup } from '../../lib/whatsapp'
+import { openWhatsappDirectContact } from '../../lib/whatsapp'
 
 interface ProductCardProps {
     image: string
@@ -99,7 +99,7 @@ export function ProductCard({ image, watermark, title }: ProductCardProps) {
             </div>
             <div className='product-card__content'>
                 <h3 className='product-card__title'>{title}</h3>
-                <Button className='product-card__cta' onClick={openWhatsappGroup} variant='ghost'>
+                <Button className='product-card__cta' onClick={openWhatsappDirectContact} variant='ghost'>
                     Solicitar orçamento
                 </Button>
             </div>

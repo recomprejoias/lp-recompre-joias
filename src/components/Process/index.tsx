@@ -9,22 +9,28 @@ import { useSectionReveal } from '../../lib/useSectionReveal'
 
 const processItems = [
     {
-        image: '/sec-6-etapa-1.png',
-        title: 'Entre no nosso grupo',
-        description: 'Recebe todas as informações necessárias e promoções exclusivas a qualquer momento',
+        image: '/process-1.jpeg',
+        title: 'Entre no grupo VIP',
+        description: 'Primeiro entre no nosso grupo VIP para não perder nenhuma condição especial',
         alt: 'Ícones do WhatsApp e da Recompre Joias',
     },
     {
-        image: '/sec-6-etapa-2.png',
-        title: 'Selecione os itens que deseja',
-        description: 'Quando gostar de algo ou quiser fazer um pedido, monte sua lista de desejo e nos passe para produzirmos',
+        image: '/process-2.jpeg',
+        title: 'Envie a peça que gostou',
+        description: 'Gostou de alguma peça? É só nos enviar no WhatsApp que separamos para você',
         alt: 'Bandeja com anéis e joias em prata',
     },
     {
-        image: '/sec-6-etapa-3.png',
-        title: 'Aprove e receba sua compra',
-        description: 'Após feito, sua compra começa o processo de entrega, com acompanhamento rastreável',
+        image: '/process-3.jpeg',
+        title: 'Aprove e pague com segurança',
+        description: 'Nosso método de pagamento é rápido e seguro, te enviamos um link feito pelo Mercado Pago após a aprovação, enviamos o seu pedido pelos Correios com contratação de seguro',
         alt: 'Joias delicadas posicionadas sobre uma superfície clara',
+    },
+    {
+        image: '/process-4.jpeg',
+        title: 'Receba sua compra',
+        description: 'Receba sua compra no conforto da sua casa e seja feliz com sua nova joia',
+        alt: 'Cliente recebendo uma joia em casa',
     },
 ]
 
@@ -88,19 +94,18 @@ const ProcessContainer = styled.section`
 
     .process__list {
         width: 100%;
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 20px;
 
         @media (max-width: 768px) {
-            flex-direction: column;
-            gap: 32px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
         }
     }
 
     .process__item {
-        width: calc((100% - 40px) / 3);
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -188,9 +193,9 @@ export function Process() {
         <div className='process__inner'>
             <div className='process__hero'>
                 <h2 className='process__title' data-animate='fade-up'>
-                    O processo é <strong>simples</strong>, feito justamente para você!
+                    Para comprar suas <strong>joias</strong> é fácil e simples!
                 </h2>
-                <Button onClick={openWhatsappGroup} variant='white' data-animate='soft'>Comprar joias</Button>
+                <Button onClick={openWhatsappGroup} variant='white' data-animate='soft'>Entrar no grupo VIP</Button>
             </div>
             <div className='process__list'>
                 {processItems.map((item) => (
@@ -206,9 +211,10 @@ export function Process() {
                         </div>
                         <div className='process__item-content'>
                             <h3 className='process__item-title'>
-                                {item.title === 'Entre no nosso grupo' && <>Entre no <strong>nosso</strong> grupo</>}
-                                {item.title === 'Selecione os itens que deseja' && <>Selecione os <strong>itens</strong> que deseja</>}
-                                {item.title === 'Aprove e receba sua compra' && <>Aprove e <strong>receba</strong> sua compra</>}
+                                {item.title === 'Entre no grupo VIP' && <>Entre no grupo <strong>VIP</strong></>}
+                                {item.title === 'Envie a peça que gostou' && <>Envie a <strong>peça</strong> que gostou</>}
+                                {item.title === 'Aprove e pague com segurança' && <>Aprove e pague com <strong>segurança</strong></>}
+                                {item.title === 'Receba sua compra' && <>Receba sua <strong>compra</strong></>}
                             </h3>
                             <p className='process__item-description'>{item.description}</p>
                         </div>

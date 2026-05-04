@@ -180,7 +180,7 @@ const ProductsContainer = styled.section`
 `
 
 export function Products() {
-    const [activeGroup, setActiveGroup] = useState<keyof typeof productGroups>('prata')
+    const [activeGroup, setActiveGroup] = useState<keyof typeof productGroups>('ouro')
     const swiperRef = useRef<SwiperType | null>(null)
     const sectionRef = useRef<HTMLElement>(null)
     const products = productGroups[activeGroup]
@@ -223,18 +223,18 @@ export function Products() {
             </h1>
             <div className='products__content-select' data-animate='soft'>
                 <button
-                    className={`products__content-select-button ${activeGroup === 'prata' ? 'is-active' : ''}`}
-                    onClick={() => setActiveGroup('prata')}
-                    type='button'
-                >
-                    Prata
-                </button>
-                <button
                     className={`products__content-select-button ${activeGroup === 'ouro' ? 'is-active' : ''}`}
                     onClick={() => setActiveGroup('ouro')}
                     type='button'
                 >
                     Ouro
+                </button>
+                <button
+                    className={`products__content-select-button ${activeGroup === 'prata' ? 'is-active' : ''}`}
+                    onClick={() => setActiveGroup('prata')}
+                    type='button'
+                >
+                    Prata
                 </button>
             </div>
         </div>

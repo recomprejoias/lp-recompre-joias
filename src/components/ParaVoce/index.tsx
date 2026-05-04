@@ -4,7 +4,7 @@ import { useRef } from 'react'
 import styled from '@emotion/styled'
 import { Button } from '../Button'
 import Image from 'next/image'
-import { openWhatsappGroup } from '../../lib/whatsapp'
+import { openWhatsappDirectContact } from '../../lib/whatsapp'
 import { useSectionReveal } from '../../lib/useSectionReveal'
 
 const ParaVoceContainer = styled.section`
@@ -114,7 +114,7 @@ export function ParaVoce() {
             <p className='para-voce__content-description' data-animate='soft'>
                 Com variedades de opções e soluções totalmente personalizadas, nosso time entrega o melhor resultado
             </p>
-            <Button onClick={openWhatsappGroup} variant='black' data-animate='soft'>Comprar joias</Button>
+            <Button onClick={openWhatsappDirectContact} variant='black' data-animate='soft'>Comprar joias</Button>
         </div>
         <div className='para-voce__images'>
             <div className='para-voce__images-frame' data-animate='scale'>

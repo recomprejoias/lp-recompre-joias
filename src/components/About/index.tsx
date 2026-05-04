@@ -4,7 +4,7 @@ import { useRef } from 'react'
 import styled from '@emotion/styled'
 import Image from 'next/image'
 import { Button } from '../Button'
-import { openWhatsappGroup } from '../../lib/whatsapp'
+import { openWhatsappDirectContact } from '../../lib/whatsapp'
 import { useSectionReveal } from '../../lib/useSectionReveal'
 
 const aboutImages = [
@@ -209,7 +209,7 @@ export function About() {
                     Trabalhamos com peças em <strong>Ouro 18k (750)</strong> e <strong>Prata 925</strong>, sendo joias seminovas (de segunda mão), cuidadosamente selecionadas, com preços acessíveis e com autenticidade garantida.
                 </p>
             </div>
-            <Button onClick={openWhatsappGroup} variant='black' data-animate='soft'>Comprar joias</Button>
+            <Button onClick={openWhatsappDirectContact} variant='black' data-animate='soft'>Comprar joias</Button>
         </div>
     </AboutContainer>
 }

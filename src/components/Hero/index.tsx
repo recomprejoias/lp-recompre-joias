@@ -19,6 +19,7 @@ const HeroContainer = styled.section`
 
     @media (max-width: 768px) {
         padding: 48px 24px;
+        height: 120dvh;
     }
 
     .hero__video {
@@ -108,9 +109,9 @@ export function Hero() {
                 Compre joias de 18k por um preço <strong>totalmente</strong> acessível
             </h1>
             <p className='hero__content-description' data-animate='soft'>
-                Ouro totalmente autentico e com selo de qualidade garantida, somos referência no mercado de joias no Brasil
+                Ouro totalmente autêntico e com selo de qualidade garantida economizando até 55%, somos referência no mercado de joias no Brasil
             </p>
-            <Button onClick={openWhatsappGroup} variant='white' data-animate='soft'>Comprar joias</Button>
+            <Button onClick={openWhatsappGroup} variant='white' data-animate='soft'>Entrar no grupo VIP</Button>
         </main>
     </HeroContainer>
 }

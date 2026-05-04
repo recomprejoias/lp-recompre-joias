@@ -13,11 +13,11 @@ export default function Home() {
     <>
       <Header />
       <Hero />
-      <ParaVoce />
+      <About />
+      {/* <ParaVoce /> */}
       <Personalizados />
       <Products />
       <CTA />
-      <About />
       <Process />
       <Footer />
     </>

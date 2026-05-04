@@ -5,7 +5,7 @@ import gsap from 'gsap'
 import Image from 'next/image'
 import { ArrowUpRight } from '@phosphor-icons/react'
 import { useEffect, useRef, useState } from 'react'
-import { openWhatsappDirectContact, openWhatsappGroup } from '../../lib/whatsapp'
+import { openWhatsappDirectContact } from '../../lib/whatsapp'
 
 const navigationItems = [
     { label: 'Inicio', href: '#inicio' },
@@ -451,7 +451,7 @@ export function Header() {
                     />
                 </button>
 
-                <button className='header__contact-button' onClick={openWhatsappGroup} type='button'>
+                <button className='header__contact-button' onClick={openWhatsappDirectContact} type='button'>
                     <span>Comprar joias</span>
                     <ArrowUpRight size={14} weight='regular' />
                 </button>

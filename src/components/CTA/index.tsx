@@ -4,7 +4,7 @@ import { useRef } from 'react'
 import styled from '@emotion/styled'
 import Image from 'next/image'
 import { Button } from '../Button'
-import { openWhatsappGroup } from '../../lib/whatsapp'
+import { openWhatsappDirectContact } from '../../lib/whatsapp'
 import { useSectionReveal } from '../../lib/useSectionReveal'
 
 const CTAContainer = styled.section`
@@ -114,7 +114,7 @@ export function CTA() {
             <p className='cta__content-description' data-animate='soft'>
                 Com variedades de opções e soluções totalmente personalizadas, nosso time entrega o melhor resultado
             </p>
-            <Button onClick={openWhatsappGroup} variant='white' data-animate='soft'>Comprar joias</Button>
+            <Button onClick={openWhatsappDirectContact} variant='white' data-animate='soft'>Comprar joias</Button>
         </div>
     </CTAContainer>
 }
